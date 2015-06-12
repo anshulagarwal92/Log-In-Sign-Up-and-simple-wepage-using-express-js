@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/firstwebpage.css">
+	</head>
+	<body>
+		<form action="/users/signup" method = "POST">
+			<fieldset>
+				<legend>Sign Up</legend>
+					Name:<br>
+						<input class = "text_1" type = "text" name = "name"><br>
+					Username:<br>
+						<input class = "text_1" id = "username" type = "text" name = "username"><br>
+					Password:<br>
+						<input class = "text_1" type = "password" name = "password"><br>
+					Re-enter Password:<br>
+						<input class = "text_1" type = "password" name = "reenterpassword"><br>
+					Age:<br>
+						<input class = "text_1" type = "number" name = "age" min = "1" max = "70"><br>
+					Gender:<br>
+						<input class = "radio" type = "radio" name = "sex" value = "male" checked>Male
+						<input class = "radio" type = "radio" name = "sex" value = "female">Female<br>
+					Skills:<br>
+						<input class = "checkbox" type = "checkbox" name = "Skills" value = 'C'>C
+						<input class = "checkbox" type = "checkbox" name = "Skills" value = 'C++'>C++
+						<input class = "checkbox" type = "checkbox" name = "Skills" value = 'JAVA'>JAVA
+						<input class = "checkbox" type = "checkbox" name = "Skills" value = 'PHP'>PHP<br>
+					Stream:<br>
+						<select class = "text_1"name = "branch">
+							<option name = "stream" value="Electronics and communication Engineering">Electronics and communication Engineering</option>
+							<option name = "stream" value="Computer Science Engineering">Computer Science Engineering</option>
+							<option name = "stream" value="Electrical Engineering">Electrical Engineering</option>
+							<option name = "stream" value="Mechanical Engineering">Mechanical Engineering</option>
+						</select><br>
+					Contact Number:<br>
+						<input class = "text_1" type = "text" name = "contactnumber" ><br>
+					Email:<br>
+						<input class = "text_1" type = "text" name = "email" ><br>
+					<input class = "submit" type = "submit" value = "submit">
+			</fieldset>
+		</form>
+	</body>
+</html>

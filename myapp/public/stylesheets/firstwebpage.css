@@ -1,0 +1,233 @@
+li {
+	color: black;
+    float: left;
+    font-size: 200%;
+    text-align: center;
+    text-decoration: none;
+    width: 20%;
+}
+
+#header {
+	background-color: yellow;
+    width: 99%;
+}
+
+#header_inner {
+	background-color: lightgray;
+    float: left;
+    text-align: center;
+    font-size: 190%;
+   margin: 1% -1.8% 1% 2%;
+    padding: 0 160px 0 108px;
+    width:3.9%;
+}
+
+a {
+	text-decoration: none;
+	color: lightslategrey;
+	
+}
+
+ul {
+	list-style-type: none;
+}
+
+h3,p {
+	margin:3%;
+}
+
+#body {
+	background-color: skyblue;
+    float: left;
+    margin: 0.8%;
+    width: 31.5%;
+}
+
+#body_under_carousel {
+	background-color: skyblue;
+    float: left;
+    margin: 9% 0.8% 1% 1%;
+    width: 31.5%;
+}
+
+#text {
+	margin-left: 1%;
+	width:99%;
+	float:left;
+}
+
+#footer {
+	background-color: lightgray;
+    float: left;
+    margin: 0 0 0 1%;
+    text-align: center;
+    width: 99%;
+}
+
+#carousel_inner {
+    background: none repeat scroll 0 0 #f0f0f0;
+    float: left;
+    overflow: hidden;
+    width: 55%;
+}
+
+#carousel_ul {
+    list-style-type: none;
+    position: relative;
+    margin: 0px;
+    padding:0px;
+}
+
+#carousel_ul li {  
+    background: none repeat scroll 0 0 #000000;
+    float: left;
+    height: 110px;
+    padding: 0;
+    width: 200px;
+}
+  
+#carousel_ul li img {  
+    border: 0 none;
+    cursor: pointer;
+    height: 100%;
+    margin-bottom: -4px;
+    width: 100%;
+}  
+
+#left_scroll, #right_scroll {  
+    background: none repeat scroll 0 0 white;
+    float: left;
+    margin: 15px;
+    width: 4.5%;
+}
+
+#left_scroll img, #right_scroll img {   
+    cursor: pointer;
+    height: 80px;
+}
+
+#container {
+    float: left;
+    width: 82%;
+    margin:7% 0 0 18%;
+}
+
+.lightbox-background {
+    position: absolute;
+    background: #000;
+    opacity: 0.9;
+    top: 0px;
+    left: 0px;
+    height: 217%;
+    width: 100%;
+    display: none;
+}
+
+.lightbox-container {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    display: none;
+    z-index:9999;
+
+}
+
+#closeBtn {
+    float: right;
+}
+
+#numofpages {
+    float: left;
+    margin: 1% 0 0 40%;
+}
+
+#numofpages a {
+    margin-left: 14%;
+}
+
+.active {
+    color:red;
+}
+/**********************/
+.contact_us{
+    background-color: sandybrown;
+    border: medium solid;
+    float: left;
+    height: 196px;
+    margin: 10% 0 0 29%;
+    width: 40%;
+    padding: 3% 
+}
+.about_us{
+    background-color: sandybrown;
+    border: medium solid;
+    float: left;
+    margin: 1% 0 1% 1%;
+    padding: 1%;
+    text-align: justify;
+    width: 95%;
+}
+.home_page{
+    background-color: sandybrown;
+    border: medium solid;
+    float: left;
+    margin: 1% 0 1% 1%;
+    padding: 1%;
+    text-align: justify;
+    width: 95%;
+}
+/******************************/
+.header_inner{
+    background-color: lightgray;
+    float: left;
+    margin: 0.1%;
+    padding: 1% 0;
+    text-align: center;
+    width: 24.8%;
+    font-size: 200%;
+}
+.header_inner a{
+    text-decoration: none;
+    color: midnightblue
+}
+.footer {
+    background-color: lightgray;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+.body_web{
+    min-height: 550px;
+}
+form{
+    margin: 3% 0 0 37%;
+}
+fieldset{
+    background-color: seashell;
+    width: 43%;
+}
+legend{
+    background-color: white;
+    font-size: 126%;
+}
+.submit{
+    margin: 10% 0 0 34%;
+    padding: 1%;
+    text-align: center;
+    width: 28%;
+}
+.text_1{
+    margin: 4% 0;
+    padding: 1%;
+    width: 80%
+}
+.radio{
+    margin: 4% 0;
+    padding: 1%;
+    width:16%;
+}
+.checkbox{
+    margin: 4% 2% 4% 0;
+    padding: 1%;
+    width:10%;
+}

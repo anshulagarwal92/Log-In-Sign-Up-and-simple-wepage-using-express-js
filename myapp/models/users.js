@@ -10,9 +10,10 @@ var User = new Schema({
     "gender":{type: String, possibleValues: ['Male','Female']},
     "skills":[String],
     "stream":String,
-    "contact_number":{type: Number},
+    "contact_number":{type: String},
     "email":String,
-
+    "img": String,
+    "dashimg":[String]
 });
 var user = mongoose.model('User', User);
 module.exports = user;

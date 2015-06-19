@@ -1,17 +1,16 @@
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var signup = require('./routes/signup');
-var login = require('./routes/login');
-
-var app = express();
-var mongoose = require('mongoose');
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    UserController = require('./routes/UserController'),
+    app = express(),
+    session = require('express-session'),
+    mongoose = require('mongoose'),
+    multer  = require('multer'),
+    mkdirp = require('mkdirp'),
+    MongoStore = require('connect-mongo')(session);
 
 mongoose.connect('mongodb://localhost:27017/mybook');
 var db = mongoose.connection;
@@ -21,6 +20,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
     console.log("Database connection opened.");
 });
+
+var UserController = new UserController();
+var done = false;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,11 +35,37 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'mysupersecretkey',
+    store: new MongoStore({mongooseConnection: mongoose.connection}) //for storing session in database
+}));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/signup',signup);
-app.use('/login',login);
+//uploading image to folder uploads  using  multer
+var multer1 = multer({ dest: './public/uploads/',
+    rename: function (fieldname, filename) {
+        return filename+Date.now();
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...')
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+        done=true;
+    }
+});
+
+app.get('/', UserController.indexPage);
+app.get('/login', UserController.login);
+app.post('/login', UserController.loginPost);
+app.get('/logout', UserController.logout);
+app.get('/signup', UserController.signup);
+app.get('/profile', UserController.profile);
+app.post('/signup', UserController.signupPost);
+app.post('/upload', multer1, UserController.uploadPhoto);
+app.post('/editprofile', UserController.editprofile);
+app.get('/dashboard',UserController.dashBoard);
+
+
 
 app.use(function(req,res,next){
     req.db = db;

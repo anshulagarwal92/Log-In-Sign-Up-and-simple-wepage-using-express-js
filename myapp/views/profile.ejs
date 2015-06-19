@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<style>
+			.header_home{
+			    /*float: left;
+			    width: 100%;
+			    background-color: gray;*/
+			    background-color: lightgray;
+			    float: left;
+			    text-align: center;
+			    font-size: 200%;
+			    margin: 1% -1.8% 1% 0%;
+			    padding: 0 160px 0 108px;
+			    width:13.6%;
+			    height: 60px;
+			}
+			.username{
+				float: left;
+				list-style-type: none;
+				margin: 0% 0% 0% 70%;
+			}
+			.logout{
+				list-style-type: none;
+				float: right;
+				margin: 2% 2% 2% 0%;
+				text-decoration: none;
+			}
+			.image{
+				float: right;
+				width: 17%;
+				height: 215px;
+				margin: 1%;
+			}
+			.buttons{
+				float: right;
+				margin-top: 18%;
+				margin-right: -21%;
+			}
+			.profile_picture{
+				float: right;
+				margin: 1% 2% 0%;
+				height:207px;
+				width:17%;
+			}
+			#home_header a{
+				text-decoration: none;
+			}
+			#home_header{
+				width:100%;
+			}
+		</style>
+		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/firstwebpage.css"> -->
+	</head>
+	<body>
+		<div id = "home_header">
+			<div class="header_home"><a href="/dashboard">Dashboard</a></div>
+			<div class="header_home"><a href="/profile">Profile</a></div>
+			<div class="header_home"><a href="/logout">Logout</a></div>
+		</div>
+
+		<div  style="float: left; margin: 0% 0% 0% 19%;">
+			<form action="/editprofile" method = "POST">
+				<fieldset style="background-color: snow; margin:7%">
+					<legend style="background-color: white;">Edit Profile</legend>
+						Name:<br>
+							<input class = "text_1" type = "text" name = "name" value="<%=name %>"><br>
+						Username:<br>
+							<input class = "text_1" id = "username" type = "text" name = "username" value="<%=username %>"><br>
+						Password:<br>
+							<input class = "text_1" type = "password" name = "password" value="<%=password %>"><br>
+						Re-enter Password:<br>
+							<input class = "text_1" type = "password" name = "reenterpassword" value="<%=reenterpassword %>"><br>
+						Age:<br>
+							<input class = "text_1" type = "number" name = "age" min = "1" max = "70" value="<%=age %>"><br>
+						Gender:<br>
+							<input class = "radio" type = "radio" name = "sex" value = "male" checked>Male
+							<input class = "radio" type = "radio" name = "sex" value = "female">Female<br>
+						Skills:<br>
+							<input class = "checkbox" type = "checkbox" name = "Skills" value = 'C'>C
+							<input class = "checkbox" type = "checkbox" name = "Skills" value = 'C++'>C++
+							<input class = "checkbox" type = "checkbox" name = "Skills" value = 'JAVA'>JAVA
+							<input class = "checkbox" type = "checkbox" name = "Skills" value = 'PHP'>PHP<br>
+						Stream:<br>
+							<select class = "text_1" name = "branch">
+								<option name = "stream" value="Electronics and communication Engineering">Electronics and communication Engineering</option>
+								<option name = "stream" value="Computer Science Engineering">Computer Science Engineering</option>
+								<option name = "stream" value="Electrical Engineering">Electrical Engineering</option>
+								<option name = "stream" value="Mechanical Engineering">Mechanical Engineering</option>
+							</select><br>
+						Contact Number:<br>
+							<input class = "text_1" type = "text" name = "contactnumber" value="<%=contactnumber %>" ><br>
+						Email:<br>
+							<input class = "text_1" type = "text" name = "email" value="<%=email %>" ><br>
+						<input class = "submit" type = "submit" value = "submit">
+				</fieldset>
+			</form>
+		</div>
+
+		<div>
+			<form action="/upload" method = "POST" enctype="multipart/form-data" >
+				<img class = "profile_picture"src="<%=img %>" alt="userimage"/>
+				<div class = "buttons">
+					<input type="file" name="image" accept="image/*">
+					<input type = "submit" value = "Upload" name = "submit">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -13,7 +13,7 @@ var User = new Schema({
     "contact_number":{type: String},
     "email":String,
     "img": String,
-    "dashimg":[String]
+    "dashimg":[String],
 });
 var user = mongoose.model('User', User);
 module.exports = user;

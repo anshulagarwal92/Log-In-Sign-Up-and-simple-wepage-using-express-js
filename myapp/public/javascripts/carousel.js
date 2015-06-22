@@ -437,6 +437,17 @@ $(document).ready(function() {
         "isPagingEnabled": true,
         "imagesPerPage":3,
         "isAutoRotateEnabled": true,
-        "isLinear":true
+        "isLinear":false
     });
+    window.mak_1 = new carousal({
+        "container": "#carousel_ul_1", 
+        "nextButton": "#right_scroll_1", 
+        "previousButton": "#left_scroll_1",
+        "numberofpages":"#numofpages_1",
+        "isPagingEnabled": true,
+        "imagesPerPage":3,
+        "isAutoRotateEnabled": true,
+        "isLinear":false
+    });
+
 });

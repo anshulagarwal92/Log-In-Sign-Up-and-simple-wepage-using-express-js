@@ -24,6 +24,35 @@ db.once('open', function callback() {
 var UserController = new UserController();
 var done = false;
 
+//uploading image to folder uploads  using  multer
+
+var multer1 = multer({ dest: './public/uploads/profile_pictures',
+    rename: function (fieldname, filename) {
+        return filename+Date.now();
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...')
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+        done=true;
+    }
+});
+
+var multer2 = multer({ dest: './public/uploads/dashboard_images',
+    rename: function (fieldname, filename) {
+        return filename+Date.now();
+        console.log(filename+Date.now());
+    },
+    onFileUploadStart: function (file) {
+        console.log(file.originalname + ' is starting ...')
+    },
+    onFileUploadComplete: function (file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+        done=true;
+    }
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -40,20 +69,6 @@ app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection}) //for storing session in database
 }));
 
-//uploading image to folder uploads  using  multer
-var multer1 = multer({ dest: './public/uploads/',
-    rename: function (fieldname, filename) {
-        return filename+Date.now();
-    },
-    onFileUploadStart: function (file) {
-        console.log(file.originalname + ' is starting ...')
-    },
-    onFileUploadComplete: function (file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path)
-        done=true;
-    }
-});
-
 app.get('/', UserController.indexPage);
 app.get('/login', UserController.login);
 app.post('/login', UserController.loginPost);
@@ -62,6 +77,7 @@ app.get('/signup', UserController.signup);
 app.get('/profile', UserController.profile);
 app.post('/signup', UserController.signupPost);
 app.post('/upload', multer1, UserController.uploadPhoto);
+app.post('/dashboardupload',multer2, UserController.dashBoardUpload);
 app.post('/editprofile', UserController.editprofile);
 app.get('/dashboard',UserController.dashBoard);
 

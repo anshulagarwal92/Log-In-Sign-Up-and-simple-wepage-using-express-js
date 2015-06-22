@@ -12,41 +12,87 @@
 	<body>
 		<div id = "home_header">
 			<div class="header_home"><a href="/dashboard">Dashboard</a></div>
-			<div class="header_home"><a href="/profile">Profile</a></div>
+			<div class="header_home"><a href="/profile">Profile(<%=username%>)</a></div>
 			<div class="header_home"><a href="/logout">Logout</a></div>
 		</div>
-		<div id="container">
-			<div id = "left_scroll" ><img src="../images/left.png" /></div>
-				<div id="carousel_inner">
-					<ul id="carousel_ul">
-						<li><a href="#" class="lightbox"><img src="../images/1.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/2.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/3.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/4.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/5.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/6.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/7.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/8.jpg" alt="111"/></a></li>
-						<li><a href="#" class="lightbox"><img src="../images/9.jpg" alt="111"/></a></li>
-					</ul>
-				</div>
-			<div id="right_scroll"><img src="../images/right.png"/></div>
-		</div>
+		<% if( allImages.length >= 5 ) { %>
+			<div id="container">
+				<div id = "left_scroll" ><img src="../images/left.png" /></div>
+					<div id="carousel_inner">
+						<ul id="carousel_ul">
+							<% for(var i = 0; i < allImages.length ; i++) {%>
+								<li>
+									<a href="#" class="lightbox">
+										<img src="/uploads/dashboard_images/<%= allImages[i] %>" alt=""/>
+									</a>
+								</li>
+							<% } %>
+						</ul>
+					</div>
+				<div id="right_scroll"><img src="../images/right.png"/></div>
+			</div>
 
-		<div id="numofpages"></div>
+			<div id="numofpages"></div>
 		
-		<div class="lightbox-container">
-			<button type="button" id="closeBtn">X</button>
-			<img id="myImage" src="" alt=""/>
-		</div>
+			<div class="lightbox-container">
+				<button type="button" id="closeBtn">X</button>
+				<img id="myImage" src="" alt=""/>
+			</div>
 
-		<div class="lightbox-background">&nbsp;</div>
-		<form action="/dashboadupload" method = "POST" enctype="multipart/form-data" >
+			<div class="lightbox-background">&nbsp;</div>
+		<% } else { %>
+			<% for(var i = 0; i < allImages.length ; i++) {%>
+				<li style="list-style-type:none">
+					<a href="#" class="lessthanfive">
+						<img style="width: 75%; float:left" src="/uploads/dashboard_images/<%= allImages[i] %>" alt=""/>
+					</a>
+				</li>
+			<% } %>
+		<% } %>
+		
+		<form action="/dashboardupload" method = "POST" enctype="multipart/form-data" >
 			<div class = "buttons">
-				<input style="margin: 6% 0% 0%; float: left;" type="file" name="image" accept="image/*">
-				<input style="margin: 6% 0% 0%; float: left;" type = "submit" value = "Upload" name = "submit">
+				<input style="margin: 17% 0% 0%; float: left;" type="file" name="image" accept="image/*">
+				<input style="margin: 17% 0% 0%; float: left;" type = "submit" value = " Upload" name = "submit">
 			</div>
 		</form>
+
+		<!-- -->
+
+		<% if( allImages.length >= 5 ) { %>
+			<div id="container_1">
+				<div id = "left_scroll_1" ><img src="../images/left.png" /></div>
+					<div id="carousel_inner_1">
+						<ul id="carousel_ul_1">
+							<% for(var i = 0; i < allImages.length ; i++) {%>
+								<li>
+									<a href="#" class="lightbox">
+										<img src="/uploads/dashboard_images/<%= allImages[i] %>" alt=""/>
+									</a>
+								</li>
+							<% } %>
+						</ul>
+					</div>
+				<div id="right_scroll_1"><img src="../images/right.png"/></div>
+			</div>
+
+			<div id="numofpages_1"></div>
+		
+			<div class="lightbox-container_1">
+				<button type="button" id="closeBtn_1">X</button>
+				<img id="myImage_1" src="" alt=""/>
+			</div>
+
+			<div class="lightbox-background_1">&nbsp;</div>
+		<% } else { %>
+			<% for(var i = 0; i < allImages.length ; i++) {%>
+				<li style="list-style-type:none">
+					<a href="#" class="lessthanfive">
+						<img style="width: 75%; float:left" src="/uploads/dashboard_images/<%= allImages[i] %>" alt=""/>
+					</a>
+				</li>
+			<% } %>
+		<% } %>
 
 	</body>
 </html>

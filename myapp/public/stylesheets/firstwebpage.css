@@ -148,6 +148,92 @@ h3,p {
 .active {
     color:red;
 }
+/*second carousal*/
+
+#carousel_inner_1 {
+    background: none repeat scroll 0 0 #f0f0f0;
+    float: left;
+    overflow: hidden;
+    width: 55%;
+}
+
+#carousel_ul_1 {
+    list-style-type: none;
+    position: relative;
+    margin: 0px;
+    padding:0px;
+}
+
+#carousel_ul_1 li {  
+    background: none repeat scroll 0 0 #000000;
+    float: left;
+    height: 110px;
+    padding: 0;
+    width: 200px;
+}
+  
+#carousel_ul_1 li img {  
+    border: 0 none;
+    cursor: pointer;
+    height: 100%;
+    margin-bottom: -4px;
+    width: 100%;
+}  
+
+#left_scroll_1, #right_scroll_1 {  
+    background: none repeat scroll 0 0 white;
+    float: left;
+    margin: 15px;
+    width: 4.5%;
+}
+
+#left_scroll_1 img, #right_scroll_1 img {   
+    cursor: pointer;
+    height: 80px;
+}
+
+#container_1 {
+    float: left;
+    width: 82%;
+    margin:7% 0 0 18%;
+}
+
+.lightbox-background_1 {
+    position: absolute;
+    background: #000;
+    opacity: 0.9;
+    top: 0px;
+    left: 0px;
+    height: 217%;
+    width: 100%;
+    display: none;
+}
+
+.lightbox-container_1 {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    display: none;
+    z-index:9999;
+
+}
+
+#closeBtn_1 {
+    float: right;
+}
+
+#numofpages_1 {
+    float: left;
+    margin: 1% 0 0 40%;
+}
+
+#numofpages_1 a {
+    margin-left: 14%;
+}
+
+.active_1 {
+    color:red;
+}
 /**********************/
 .contact_us{
     background-color: sandybrown;
@@ -242,7 +328,9 @@ legend{
     top: 10%;
 }
 .button_1 a{
-    background-color: -moz-dragtargetzone;
+    background-color: lightgray;
+    border: 1px solid floralwhite;
+    color: navy;
     padding: 15%;
 }
 .signup_button{
@@ -255,7 +343,7 @@ legend{
     background-color: lightgray;
     float: left;
     text-align: center;
-    font-size: 200%;
+    font-size: 180%;
     margin: 1% -1.8% 1% 0%;
     padding: 0 160px 0 108px;
     width:13.6%;
@@ -263,6 +351,7 @@ legend{
 }
 #home_header{
     width:100%;
+    margin-top: -3%;
 }
 #home_header a{
     text-decoration: none;

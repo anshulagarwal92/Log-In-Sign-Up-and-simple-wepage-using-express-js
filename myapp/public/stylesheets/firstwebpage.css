@@ -109,7 +109,7 @@ h3,p {
 #container {
     float: left;
     width: 82%;
-    margin:7% 0 0 18%;
+    margin:0% 0 0 18%;
 }
 
 .lightbox-background {
@@ -170,6 +170,7 @@ h3,p {
     height: 110px;
     padding: 0;
     width: 200px;
+    position:relative;
 }
   
 #carousel_ul_1 li img {  
@@ -190,12 +191,13 @@ h3,p {
 #left_scroll_1 img, #right_scroll_1 img {   
     cursor: pointer;
     height: 80px;
+    margin: -234% 0 0 2141%;
 }
 
 #container_1 {
     float: left;
     width: 82%;
-    margin:7% 0 0 18%;
+    margin:7% 0 0 12%;
 }
 
 .lightbox-background_1 {
@@ -356,4 +358,61 @@ legend{
 #home_header a{
     text-decoration: none;
     color: indigo;
+}
+/********** Dashboard page Lightbox comment box CSS ************/
+
+.comment-container {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    display: none;
+    z-index:9999;
+}
+.comment-background {
+    position: absolute;
+    background: #000;
+    opacity: 0.9;
+    top: 0px;
+    left: 0px;
+    height: 217%;
+    width: 100%;
+    display: none;
+}
+.closeBtn_comment{
+    margin: -24% 0% 0% 96%
+}
+/*************Dashboard CSS for All USer Images*******************/
+.carousel_hover:hover {
+    display: block;
+}
+.like {
+    opacity: 0
+}
+.carousel_hover:hover .like {
+    opacity: 1
+}
+.carousel_hover:hover img {
+    opacity: 0.4;
+}
+.like_button{
+    position: absolute; 
+    bottom: 0px; 
+    font-size: 50%; 
+    margin: 0 0 0 14%;
+}
+.like_button a{
+    color:white;
+}
+.comment_click {
+    position: absolute; 
+    bottom: 0px; 
+    font-size: 50%; 
+    margin: 0 0 0 47%;
+}
+.comment_click a{
+    color:white;
+}
+.comment-container{
+    float:left; 
+    position:absolute;
 }

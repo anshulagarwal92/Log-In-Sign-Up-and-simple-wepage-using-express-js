@@ -84,7 +84,6 @@ carousal.prototype = {
         //this will calculate the width of each image
         this.eachLiWidth = $(this.container+' li:first').width();
         this.left_indent = (this.eachLiWidth);
-        console.log("this.left_indent",this.left_indent);
         $(this.container).parent().width(this.eachLiWidth*this.noOfImagesToShowInOnePage);
         $(this.container).width(this.eachLiWidth*$(this.container+' li').length);
         //here we are calculating the total number of pages in carousel according to the user input 
@@ -436,7 +435,7 @@ $(document).ready(function() {
         "numberofpages":"#numofpages",
         "isPagingEnabled": true,
         "imagesPerPage":3,
-        "isAutoRotateEnabled": true,
+        "isAutoRotateEnabled": false,
         "isLinear":false
     });
     window.mak_1 = new carousal({
@@ -445,8 +444,8 @@ $(document).ready(function() {
         "previousButton": "#left_scroll_1",
         "numberofpages":"#numofpages_1",
         "isPagingEnabled": true,
-        "imagesPerPage":3,
-        "isAutoRotateEnabled": true,
+        "imagesPerPage":5,
+        "isAutoRotateEnabled": false,
         "isLinear":false
     });
 

@@ -25,7 +25,7 @@ var UserController = new UserController();
 var done = false;
 
 //uploading image to folder uploads  using  multer
-
+var count = 0;
 var multer1 = multer({ dest: './public/uploads/profile_pictures',
     rename: function (fieldname, filename) {
         return filename+Date.now();
@@ -34,14 +34,16 @@ var multer1 = multer({ dest: './public/uploads/profile_pictures',
         console.log(file.originalname + ' is starting ...')
     },
     onFileUploadComplete: function (file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path)
+        console.log(file.fieldname + ' uploaded to  ' + file.path);
+        count++;
+        console.log("count====>"+count);
         done=true;
     }
 });
 
-var multer2 = multer({ dest: './public/uploads/dashboard_images',
+var multer2 = multer({ dest: './public/uploads/dashboard_images/',
     rename: function (fieldname, filename) {
-        return filename+Date.now();
+        return filename+'_'+Date.now();
         console.log(filename+Date.now());
     },
     onFileUploadStart: function (file) {
@@ -79,7 +81,9 @@ app.post('/signup', UserController.signupPost);
 app.post('/upload', multer1, UserController.uploadPhoto);
 app.post('/dashboardupload',multer2, UserController.dashBoardUpload);
 app.post('/editprofile', UserController.editprofile);
-app.get('/dashboard',UserController.dashBoard);
+app.get('/dashboard', UserController.getAllImages, UserController.dashBoard);
+//app.post('/like', UserController.likeImage);
+//app.post('/comment', UserController.comment, UserController.dashBoard);
 
 
 

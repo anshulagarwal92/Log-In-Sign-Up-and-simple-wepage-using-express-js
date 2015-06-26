@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
-	"name":String,
+    "name":String,
     "username":String,
     "password":String,
     "reenterpassword":String,
@@ -13,7 +13,7 @@ var User = new Schema({
     "contact_number":{type: String},
     "email":String,
     "img": String,
-    "dashimg":[String],
+    "dashimg":[],
 });
 var user = mongoose.model('User', User);
 module.exports = user;

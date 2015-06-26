@@ -31,8 +31,7 @@ UserController.prototype = {
             contact_number:req.body.contactnumber,
             email: req.body.email,
             img : "defaultuserimage.jpg",
-            dashimg: [],
-            comment:[],
+            dashimg:[],
         });
         information.save(function (err, data) {
             console.log(err, data);
@@ -152,6 +151,7 @@ UserController.prototype = {
     },
     dashBoard: function(req,res,next) {
         user.findOne({ username: req.session.username}, function(err, users) {
+            console.log("100====>"+(req.allImages));
             if(users) {
                 res.render('dashboard', {
                     img:users.img,
@@ -159,7 +159,7 @@ UserController.prototype = {
                     allImages: users.dashimg,
                     allUsersImages: req.allImages,
                     likeCount: "1",
-                });  
+                });   
             } else {
                 res.redirect('login');
             }
@@ -167,13 +167,25 @@ UserController.prototype = {
     },
 
     dashBoardUpload: function(req,res,next){
-        user.update({ username:req.session.username }, { $push: { dashimg: req.files.image.name } }, function(err, user) {
-            if (err || !user){
-                throw err;
-            } else {
-                res.redirect('dashboard');  
+        console.log(req.files.image.name);
+        var temp = {
+           img_url: req.files.image.name,
+           likes:[],
+           comments:[]
+        };
+        user.findOne({ username:req.session.username }, function(err, user) {
+            //If user.dashimg is not array then first declare it
+            if(!(user.dashimg instanceof Array)) {
+                user.dashimg = [];
             }
-        }); 
+            user.dashimg.push(temp);
+            user.save(function (err) {
+                if(err) {
+                    console.error('ERROR!');
+                }
+                res.redirect('dashboard');
+            });
+        });
     },
     // comment:function(req,res,next){
     //     console.log("hello i am in comment");
